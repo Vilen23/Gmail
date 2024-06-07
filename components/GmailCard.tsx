@@ -29,7 +29,7 @@ export default function GmailCard({ content, from, category }: GmailCardProps) {
           </CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-sm text-black/70 md:w-[800px] text-start">
+          <p className="text-sm text-black/70 md:w-[750px] text-start">
             {content}
           </p>
         </CardContent>

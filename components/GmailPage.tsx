@@ -67,7 +67,7 @@ export default function GmailPage() {
     if (classifiedmail.length > 0) {
       ClassifyMail();
     }
-  }, [selected]);
+  }, [selected,ClassifyMail,classifiedmail.length]);
 
   return (
     <div className="md:px-[210px] px-12 pt-3">
