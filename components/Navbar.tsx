@@ -16,6 +16,7 @@ export default function Navbar() {
     localStorage.removeItem("recoil-persist");
     signOut({ callbackUrl: "https://gmail-topaz-three.vercel.app/" });
   };
+  
   return (
     <div className="flex justify-between pt-20 px-10 md:px-[200px]">
       <div className="flex gap-3">
