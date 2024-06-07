@@ -23,6 +23,7 @@ export default function LandingPage() {
     });
   };
 
+  
   const handlegetGmail = async () => {
     if (!session?.data?.user) return setError("Please login first");
     try {
