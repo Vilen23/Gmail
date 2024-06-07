@@ -8,7 +8,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { Error } from "./Error";
-import { OpenAIAtom } from "@/states/atoms/OpenAI";
+
 
 export default function LandingPage() {
   const router = useRouter();
@@ -19,7 +19,7 @@ export default function LandingPage() {
 
   const handleClick = async () => {
     signIn("google", {
-      callbackUrl: "https://gmail-topaz-three.vercel.app/",
+      callbackUrl: "https://gmail-topaz-three.vercel.app",
     });
   };
 

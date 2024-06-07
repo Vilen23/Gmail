@@ -16,5 +16,6 @@ export const handleClassification = async (
 
   const result = await model.generateContent(fullPrompt);
   const text = await result.response.text();
+  console.log(text)
   return text;
 };

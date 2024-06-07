@@ -11,6 +11,7 @@ export const NEXT_AUTH: NextAuthOptions = {
           scope:
             "openid profile email https://www.googleapis.com/auth/gmail.readonly",
           redirect_uri: process.env.NEXTAUTH_URL + "/api/auth/callback/google",
+          state:"true"
         },
       },
     }),

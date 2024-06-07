@@ -8,8 +8,3 @@ export const gmailAtom = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
-export const classifiedMailAtom = atom({
-  key: "classifiedMailAtom",
-  default: [],
-  effects_UNSTABLE: [persistAtom],
-});
