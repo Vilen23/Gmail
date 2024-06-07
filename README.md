@@ -1,5 +1,14 @@
-# How to start the project locally ?
+# Prerequisites
+## You need Google gemini api key get it from the link below
+```sh
+https://aistudio.google.com/app/apikey
+```
+## You also need Google client id and google secret key for Google OAuth
+```sh
+https://developers.google.com/identity/oauth2/web/guides/get-google-api-clientid
+```
 
+# How to start the project locally ?
 ## 1.Clone the repository
 ```sh
 git clone https://github.com/Vilen23/gmail.git
@@ -21,10 +30,12 @@ npm run dev
 #### 1. The home page will have 2 buttons login and get gmails.
 ![alt text](/public/image.png)
 ### 2.First login using your Google account which you must set in the google console to work with your app
-
 ### 3.Click on get gmail button and it will fetch all the mails from your google account.
 ![alt text](/public/image2.png)
 ### 4.You can select how many Mails you want to classify
 ![alt text](/public/image3.png)
 ### 5.Now all your mails have been classified
 ![alt text](/public/image4.png)
+### 6.You can view your mail by clicking on it
+![alt text](/public/image6.png)
+
