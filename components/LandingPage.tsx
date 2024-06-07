@@ -19,7 +19,7 @@ export default function LandingPage() {
 
   const handleClick = async () => {
     signIn("google", {
-      callbackUrl: "http://localhost:3000",
+      callbackUrl: "https://gmail-topaz-three.vercel.app/",
     });
   };
 

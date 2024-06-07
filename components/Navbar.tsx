@@ -8,13 +8,13 @@ import { Button } from "./ui/button";
 export default function Navbar() {
   const session = useSession();
   const user = session.data?.user;
-  
+
   if (!user) return null;
 
   const handleLogout = () => {
     localStorage.removeItem("openai-key");
     localStorage.removeItem("recoil-persist");
-    signOut({ callbackUrl: "http://localhost:3000" });
+    signOut({ callbackUrl: "https://gmail-topaz-three.vercel.app/" });
   };
   return (
     <div className="flex justify-between pt-20 px-10 md:px-[200px]">
