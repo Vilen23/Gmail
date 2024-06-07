@@ -8,6 +8,7 @@ import { Button } from "./ui/button";
 export default function Navbar() {
   const session = useSession();
   const user = session.data?.user;
+  
   if (!user) return null;
 
   const handleLogout = () => {
