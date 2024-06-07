@@ -27,7 +27,22 @@ export default function LandingPage() {
     if (!session?.data?.user) return setError("Please login first");
     try {
       const response = await axios.post("/api/gmail/getgmail");
-      setGmail(response.data);
+      const selectedMails = response.data;
+      const Mails = selectedMails.map((mail: any, index: number) => {
+        const fromHeader = mail.payload.headers.find(
+          (header: any) => header.name === "From"
+        )?.value;
+        const fromEmail = fromHeader?.match(/<(.*?)>/)?.[1];
+        const fromName = fromHeader?.match(/(.+?)\s?</)?.[1];
+        return {
+          ...mail,
+          from: {
+            name: fromName || "",
+            email: fromEmail || fromHeader || "",
+          },
+        };
+      });
+      setGmail(Mails);
       router.push("/yourgmail");
     } catch (error) {
       console.log(error);
@@ -46,14 +61,6 @@ export default function LandingPage() {
       <Button onClick={handleClick}>
         {session?.data?.user ? "Logged in" : "Log in with google"}
       </Button>
-      <Input
-        placeholder="Enter OpenAI Key"
-        className="w-[80vw] md:w-[60vw]"
-        onChange={(e) => {
-          setOpenAIKey(e.target.value);
-          localStorage.setItem("openai-key", e.target.value);
-        }}
-      />
     </div>
   );
 }
