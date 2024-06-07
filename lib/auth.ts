@@ -8,10 +8,9 @@ export const NEXT_AUTH: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
       authorization: {
         params: {
-          scope:
-            "openid profile email https://www.googleapis.com/auth/gmail.readonly",
-          redirect_uri: process.env.NEXTAUTH_URL + "/api/auth/callback/google",
-          state:"true"
+          scope: "openid email profile https://www.googleapis.com/auth/gmail.readonly",
+          access_type: "offline",
+          response_type: "code"
         },
       },
     }),
