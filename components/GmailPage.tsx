@@ -121,11 +121,12 @@ export default function GmailPage() {
                         >
                           {mail.category}
                         </p>
-                        
                       </SheetTitle>
                       <SheetDescription>{mail.snippet}</SheetDescription>
                     </SheetHeader>
-                    <SheetFooter className=" flex justify-start text-start">From:{mail.from.email}</SheetFooter>
+                    <SheetFooter className=" flex justify-start text-start">
+                      From:{mail.from.email}
+                    </SheetFooter>
                   </SheetContent>
                 </Sheet>
               </div>
@@ -135,22 +136,21 @@ export default function GmailPage() {
               .map((mail: any, index: React.Key | null | undefined) => (
                 <div key={index}>
                   <Sheet>
-                  <SheetTrigger>
-                    <GmailCard
-                      content={mail.snippet}
-                      from={mail.from.name}
-                    />
-                  </SheetTrigger>
-                  <SheetContent>
-                    <SheetHeader>
-                      <SheetTitle className="flex justify-between items-center">
-                        <p>{mail.from.name}</p>
-                      </SheetTitle>
-                      <SheetDescription>{mail.snippet}</SheetDescription>
-                    </SheetHeader>
-                    <SheetFooter className=" flex justify-start text-start">From:{mail.from.email}</SheetFooter>
-                  </SheetContent>
-                </Sheet>
+                    <SheetTrigger>
+                      <GmailCard content={mail.snippet} from={mail.from.name} />
+                    </SheetTrigger>
+                    <SheetContent>
+                      <SheetHeader>
+                        <SheetTitle className="flex justify-between items-center">
+                          <p>{mail.from.name}</p>
+                        </SheetTitle>
+                        <SheetDescription>{mail.snippet}</SheetDescription>
+                      </SheetHeader>
+                      <SheetFooter className=" flex justify-start text-start">
+                        From:{mail.from.email}
+                      </SheetFooter>
+                    </SheetContent>
+                  </Sheet>
                 </div>
               ))}
       </div>

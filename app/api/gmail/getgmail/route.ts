@@ -19,8 +19,10 @@ export async function POST() {
       userId: "me",
       maxResults: 50,
     });
+
     const messages = gmails.data.messages;
     if (!messages) return NextResponse.json({ message: "No messages found" });
+
     const fullMessages = await Promise.all(
       messages.map(async (message: any) => {
         const fullMessage = await gmail.users.messages.get({

@@ -9,10 +9,10 @@ export const handleClassification = async (
     generationConfig: { responseMimeType: "application/json" },
   });
 
-    const prompt = emails
-      .map((email, index) => `Email ${index + 1}: ${email}`)
-      .join("\n\n");
-    const fullPrompt = `Classify the following emails into one of these categories: important, promotional, social, marketing, spam.\n\n${prompt}\n\nCategories:`;
+  const prompt = emails
+    .map((email, index) => `Email ${index + 1}: ${email}`)
+    .join("\n\n");
+  const fullPrompt = `Classify the following emails into one of these categories: important, promotional, social, marketing, spam.\n\n${prompt}\n\nCategories:`;
 
   const result = await model.generateContent(fullPrompt);
   const text = await result.response.text();
