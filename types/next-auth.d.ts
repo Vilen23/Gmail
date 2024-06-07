@@ -1,5 +1,4 @@
-
-import NextAuth, { DefaultSession } from "next-auth"
+import NextAuth, { DefaultSession } from "next-auth";
 
 declare module "next-auth" {
   /**
@@ -8,9 +7,11 @@ declare module "next-auth" {
   interface Session {
     user: {
       /** The user's postal address. */
-      authToken: string,
-      Twofactor: boolean,
-      deviceId:string,
-    } & DefaultSession["user"]
+      accessToken: string;
+      id: string;
+      email: string;
+      name: string;
+      image: string;
+    } & DefaultSession["user"];
   }
 }

@@ -7,7 +7,6 @@ import Image from "next/image";
 
 export default function Home() {
   const session = useSession();
-  console.log(session);
   const handleClick = async () => {
     signIn("google", {
       callbackUrl: "http://localhost:3000",
@@ -15,7 +14,7 @@ export default function Home() {
   };
   const handlegetGmail = async () => {
     const response = await axios.post("/api/gmail/getgmail");
-    console.log(response);
+    
   }
   return (
     <div className="flex flex-col justify-center items-center h-[100vh] gap-10">
