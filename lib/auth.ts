@@ -21,7 +21,6 @@ export const NEXT_AUTH: NextAuthOptions = {
         token.accessToken = account.access_token;
         token.id = account.id_token;
       }
-      console.log(token);
       return token;
     },
 
