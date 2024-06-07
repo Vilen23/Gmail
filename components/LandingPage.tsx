@@ -15,7 +15,7 @@ export default function LandingPage() {
   const session = useSession();
   const [error, setError] = useState("");
   const [gmail, setGmail] = useRecoilState(gmailAtom);
-  const [openAIKey, setOpenAIKey] = useRecoilState(OpenAIAtom);
+  const [loading, setLoading] = useState(false);
 
   const handleClick = async () => {
     signIn("google", {
@@ -26,6 +26,7 @@ export default function LandingPage() {
   const handlegetGmail = async () => {
     if (!session?.data?.user) return setError("Please login first");
     try {
+      setLoading(true);
       const response = await axios.post("/api/gmail/getgmail");
       const selectedMails = response.data;
       const Mails = selectedMails.map((mail: any, index: number) => {
@@ -44,6 +45,7 @@ export default function LandingPage() {
       });
       setGmail(Mails);
       router.push("/yourgmail");
+      setLoading(false);
     } catch (error) {
       console.log(error);
       setError("Something went wrong try again later");
@@ -57,7 +59,9 @@ export default function LandingPage() {
           <Error message={error} />
         </div>
       )}
-      <Button onClick={handlegetGmail}>Get gmails</Button>
+      <Button onClick={handlegetGmail}>
+        {loading ? "Wait while we get your mails" : "Get Mails"}
+      </Button>
       <Button onClick={handleClick}>
         {session?.data?.user ? "Logged in" : "Log in with google"}
       </Button>

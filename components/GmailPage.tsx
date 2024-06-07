@@ -35,7 +35,6 @@ export default function GmailPage() {
   const ClassifyMail = async () => {
     setLoading(true);
     const apiKey = process.env.NEXT_PUBLIC_GEMINI_APIKEY;
-    console.log(apiKey);
     if (!apiKey) return alert("You have not set the OpenAI key");
 
     const selectedMails = mails.slice(0, selected);
@@ -63,17 +62,13 @@ export default function GmailPage() {
     setLoading(false);
   };
 
-  useEffect(() => {
-    if (classifiedmail.length > 0) {
-      ClassifyMail();
-    }
-  }, [selected,ClassifyMail,classifiedmail.length]);
 
   return (
     <div className="md:px-[210px] px-12 pt-3">
       <div className="flex justify-between">
         <Select
           onValueChange={(e) => {
+            setClassifiedMail([]);
             setSelected(parseInt(e));
           }}
         >
